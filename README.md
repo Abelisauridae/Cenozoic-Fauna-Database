@@ -4,6 +4,10 @@ Structured database of prehistoric Cenozoic vertebrates built from Paleobiology 
 
 This first pass is intentionally scoped to vertebrate fauna rather than all animals. It includes mammals, terror birds and other birds, reptiles, amphibians, and fishes from the Cenozoic window requested for this project.
 
+## Open the atlas
+
+Open `index.html` or publish the folder with GitHub Pages to use the interactive atlas UI.
+
 ## Current dataset coverage
 
 - 16,530 prehistoric vertebrate species

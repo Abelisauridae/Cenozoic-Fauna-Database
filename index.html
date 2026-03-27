@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cenozoic Fauna Atlas</title>
+    <script>
+      (() => {
+        try {
+          const storedTheme = localStorage.getItem("cenozoic-fauna-theme");
+          const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+          const theme =
+            storedTheme === "dark" || storedTheme === "light"
+              ? storedTheme
+              : prefersDark
+                ? "dark"
+                : "light";
+          document.documentElement.dataset.theme = theme;
+        } catch (error) {
+          document.documentElement.dataset.theme = "light";
+        }
+      })();
+    </script>
+    <link rel="stylesheet" href="./styles.css" />
+    <script defer src="./data/world-land.js"></script>
+    <script defer src="./data/cenozoic-fauna-database.js"></script>
+    <script defer src="./app.js"></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <div class="hero-topbar">
+            <p class="eyebrow">Interactive Paleobiology Database Explorer</p>
+            <button
+              id="theme-toggle-button"
+              class="ghost-button theme-toggle"
+              type="button"
+              aria-pressed="false"
+            >
+              Dark mode: Off
+            </button>
+          </div>
+          <h1>Cenozoic Fauna Atlas</h1>
+          <p class="hero-summary">
+            A searchable map and species browser for prehistoric Cenozoic vertebrates
+            from <code>66.0 Ma</code> to <code>0.01 Ma</code>, spanning mammals, terror birds,
+            reptiles, amphibians, and fishes from the Paleobiology Database.
+          </p>
+        </div>
+        <div class="hero-stats" id="hero-stats"></div>
+      </header>
+
+      <section class="controls-panel">
+        <label class="field field-search">
+          <span>Search species</span>
+          <input
+            id="search-input"
+            type="search"
+            placeholder="Try Smilodon fatalis"
+          />
+        </label>
+
+        <label class="field">
+          <span>Fauna group</span>
+          <select id="group-filter" disabled></select>
+        </label>
+
+        <label class="field">
+          <span>Class</span>
+          <select id="class-filter" disabled></select>
+        </label>
+
+        <label class="field">
+          <span>Order</span>
+          <select id="order-filter" disabled></select>
+        </label>
+
+        <label class="field">
+          <span>Epoch</span>
+          <select id="epoch-filter" disabled></select>
+        </label>
+
+        <label class="field">
+          <span>Sort</span>
+          <select id="sort-select">
+            <option value="alpha">Alphabetical</option>
+            <option value="localities">Most localities</option>
+            <option value="oldest">Oldest first</option>
+          </select>
+        </label>
+      </section>
+
+      <main class="app-grid">
+        <aside class="species-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="panel-label">Species</p>
+              <h2 id="species-count-heading">Loading</h2>
+            </div>
+            <button id="clear-selection-button" class="ghost-button" type="button">
+              Clear selection
+            </button>
+          </div>
+          <p class="species-caption" id="species-caption"></p>
+          <div id="species-list" class="species-list"></div>
+        </aside>
+
+        <section class="map-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="panel-label">Fossil Locality Map</p>
+              <h2 id="map-heading">Loading atlas data</h2>
+            </div>
+            <div class="map-actions">
+              <button id="zoom-selection-button" class="ghost-button" type="button">
+                Zoom to selection
+              </button>
+              <button id="reset-map-button" class="ghost-button" type="button">
+                Reset map
+              </button>
+            </div>
+          </div>
+
+          <div class="map-legend">
+            <span><i class="legend-swatch land"></i> Land</span>
+            <span><i class="legend-swatch points"></i> Fossil localities</span>
+            <span><i class="legend-swatch selected"></i> Selected species</span>
+          </div>
+
+          <div class="map-shell">
+            <svg
+              id="atlas-map"
+              viewBox="0 0 1000 520"
+              aria-label="Interactive cenozoic fossil locality map"
+            ></svg>
+            <div id="map-tooltip" class="map-tooltip" hidden></div>
+          </div>
+        </section>
+
+        <section class="detail-panel" id="detail-panel"></section>
+      </main>
+
+      <footer class="sources-panel" id="sources-panel"></footer>
+    </div>
+  </body>
+</html>

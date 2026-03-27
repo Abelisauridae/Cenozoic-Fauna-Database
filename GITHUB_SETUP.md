@@ -17,12 +17,15 @@ git push -u origin main
 
 These paths should remain in the same repository:
 
+- `index.html`
+- `app.js`
+- `styles.css`
 - `README.md`
 - `GITHUB_SETUP.md`
 - `data/`
 - `scripts/`
 
-The generated JSON and JS bundles are already included, so the repository is immediately usable as a data source even before you rerun the builder.
+The generated JSON and JS bundles are already included, so the repository is immediately usable as a published atlas even before you rerun the builder.
 
 ## Notes
 

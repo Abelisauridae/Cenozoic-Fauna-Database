@@ -1,0 +1,114 @@
+{
+  "format": "chunked-v1",
+  "metadata": {
+    "generatedAt": "2026-03-27T21:57:38.974457+00:00",
+    "datasetName": "Cenozoic Fauna Database",
+    "scope": {
+      "baseName": "Vertebrata",
+      "timeWindow": {
+        "startMa": 66.0,
+        "endMa": 0.01,
+        "intervalQuery": "Danian,Holocene"
+      }
+    },
+    "speciesCount": 16530,
+    "mappedSpeciesCount": 16494,
+    "localityCount": 80038,
+    "occurrenceCount": 82099,
+    "faunaGroupCounts": {
+      "Amphibians": 155,
+      "Birds": 1279,
+      "Cartilaginous fishes": 804,
+      "Jawless fishes": 1,
+      "Mammals": 10827,
+      "Other vertebrates": 1,
+      "Ray-finned fishes": 1995,
+      "Reptiles": 1445,
+      "Terror birds": 23
+    },
+    "classCounts": {
+      "Actinopterygii": 6,
+      "Amphibia": 155,
+      "Aves": 1217,
+      "Chondrichthyes": 804,
+      "Mammalia": 10827,
+      "Myxini": 1,
+      "Osteichthyes": 1989,
+      "Reptilia": 1445,
+      "Saurischia": 85,
+      "Unclassified": 1
+    },
+    "notes": [
+      "Species are sourced from the PBDB Vertebrata taxonomy feed filtered to the Danian through Holocene query window.",
+      "The working scope is prehistoric vertebrate fauna: mammals, birds including terror birds, reptiles, amphibians, and fishes.",
+      "Extant species are excluded using the PBDB is_extant flag from the taxonomic feed.",
+      "Form taxa and ichnotaxa are excluded by removing PBDB records flagged with F and/or I.",
+      "A local numeric age filter retains records that overlap 66.0 Ma to 0.01 Ma, approximating a cutoff at 10,000 years ago.",
+      "Displayed temporal ranges are clamped to the target Cenozoic window when a taxon range crosses the 66.0 Ma or 0.01 Ma boundary.",
+      "Map localities are aggregated from PBDB species-level fossil occurrences with coordinates."
+    ],
+    "sources": [
+      {
+        "name": "Paleobiology Database taxonomic names API",
+        "url": "https://paleobiodb.org/data1.2/taxa/list.csv?base_name=Vertebrata&rank=species&show=app,parent,size,class&interval=Danian,Holocene&limit=all",
+        "role": "Accepted vertebrate species, taxonomy, and broad temporal ranges"
+      },
+      {
+        "name": "Paleobiology Database fossil occurrences API",
+        "url": "https://paleobiodb.org/data1.2/occs/list.csv?base_name=Vertebrata&taxon_reso=species&show=coords,class,time&interval=Danian,Holocene&limit=all",
+        "role": "Occurrence coordinates and interval data"
+      },
+      {
+        "name": "Natural Earth land polygons",
+        "url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_land.geojson",
+        "role": "Simplified world land backdrop for future atlas views"
+      }
+    ],
+    "chunkCount": 6,
+    "chunkSize": 3000
+  },
+  "chunks": [
+    {
+      "chunkIndex": 1,
+      "file": "chunks/cenozoic-fauna-species-001.json",
+      "speciesCount": 3000,
+      "firstSpecies": "Aaptoryctes ivyi",
+      "lastSpecies": "Choneziphius leidyi"
+    },
+    {
+      "chunkIndex": 2,
+      "file": "chunks/cenozoic-fauna-species-002.json",
+      "speciesCount": 3000,
+      "firstSpecies": "Choneziphius liops",
+      "lastSpecies": "Gumbatomys asifi"
+    },
+    {
+      "chunkIndex": 3,
+      "file": "chunks/cenozoic-fauna-species-003.json",
+      "speciesCount": 3000,
+      "firstSpecies": "Gunggamarandu maunala",
+      "lastSpecies": "Miohippus anceps"
+    },
+    {
+      "chunkIndex": 4,
+      "file": "chunks/cenozoic-fauna-species-004.json",
+      "speciesCount": 3000,
+      "firstSpecies": "Miohippus annectens",
+      "lastSpecies": "Plesiarctomys huerzeleri"
+    },
+    {
+      "chunkIndex": 5,
+      "file": "chunks/cenozoic-fauna-species-005.json",
+      "speciesCount": 3000,
+      "firstSpecies": "Plesictis robustus",
+      "lastSpecies": "Synthetoceras tricornatus"
+    },
+    {
+      "chunkIndex": 6,
+      "file": "chunks/cenozoic-fauna-species-006.json",
+      "speciesCount": 1530,
+      "firstSpecies": "Synthliboramphus rineyi",
+      "lastSpecies": "Zygorhiza kochii"
+    }
+  ]
+}
